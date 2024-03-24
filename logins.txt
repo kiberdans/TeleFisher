@@ -1,2 +1,3 @@
-By t.me/dnt_te
-
+token = 
+admin_id = 
+bd_go = 
