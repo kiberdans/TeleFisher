@@ -58,6 +58,7 @@ print(f'''
                         Тип: {cyan}ГЛАЗ БОГА    
                         
                     {bold}{yellow}TELEGRAM:{magenta} t.me/dnt_te
+                    https://github.com/kiberdans/TeleFisher
       ''')
 
 
