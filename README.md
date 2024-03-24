@@ -25,6 +25,7 @@ pip install colorama
 ФИШКИ:
 Токен, id будут храниться в файле logins.txt, при желании там ты их можешь отредактировать вручную
 Пример файла:
+
 By t.me/dnt_te
 
 token = 6979407835:AAG6PeluGk_kqPl57r2LPOF-g1crXQtQxQ0
