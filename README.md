@@ -28,7 +28,10 @@ pip install colorama
 
 By t.me/dnt_te
 
-token = 6979407835:AAG6PeluGk_kqPl57r2LPOF-g1crXQtQxQ0\nadmin_id = 6757836884
+token = 6979407835:AAG6PeluGk_kqPl57r2LPOF-g1crXQtQxQ0
+
+admin_id = 6757836884
+
 bd_go = +
 
 Вот.
