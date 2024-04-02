@@ -6,14 +6,9 @@
 - Запусти TeleFisher.exe
 
 Для питонистов:
-- Открой командную строку (win+r и пишешь cmd)
-- Установи pip командой py -m pip install --upgrade pip
-- Установи библиотеки
-pip install telebot
-pip install requests
-pip install colorama
+- Запусти Установка библиотек.py
+Он установит библиотеки requests, telebot, colorama
 - Запусти TeleFisher.py
-
 
 
 ЧТО ДЕЛАТЬ В ПРОГЕ: 
@@ -28,8 +23,6 @@ pip install colorama
 
 
 Пример файла:
-
-By t.me/dnt_te
 
 token = 6979407835:AAG6PeluGk_kqPl57r2LPOF-g1crXQtQxQ0
 
